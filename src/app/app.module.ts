@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ErrorComponent } from './pages/error/error.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     RouterModule,// надо для Router
     AppRoutingModule,// надо для Router
-    HomeModule,
+    HomeModule, CarouselModule.forRoot(),
 
 
     // FormsModule,
