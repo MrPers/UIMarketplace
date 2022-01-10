@@ -1,16 +1,28 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeModule } from './modules/home/home.module';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { ErrorComponent } from './pages/error/error.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RouterModule,// надо для Router
+    AppRoutingModule,// надо для Router
+    HomeModule,
+
+
+    // FormsModule,
+    // HttpClientModule,
+    // ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
