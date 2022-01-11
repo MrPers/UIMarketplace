@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { ErrorComponent } from './pages/error/error.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,9 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     BrowserModule,
     RouterModule,// надо для Router
     AppRoutingModule,// надо для Router
-    HomeModule, CarouselModule.forRoot(),
+    HomeModule,
 
+    ScrollToModule.forRoot(), //add scrol, ндо чтобы была в App
 
     // FormsModule,
     // HttpClientModule,

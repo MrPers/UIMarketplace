@@ -6,6 +6,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { FormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 
 @NgModule({
@@ -16,8 +17,9 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     TooltipModule,
     CommonModule,
     HomeRoutingModule,
-    // CarouselModule,
+
     IvyCarouselModule,    //add carusel
+    ScrollToModule      //add scrol
   ],
   providers: [
   //   CurrencyService,

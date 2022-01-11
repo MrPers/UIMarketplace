@@ -1,3 +1,184 @@
-.list-item {
-  text-align : left;
+a {
+	position: relative;
+	color: black; /*задаём цвет ссылки*/
+	cursor: pointer;
+	line-height: 1; /*задаём высоту строки*/
+	text-decoration: none; /*убираем подчёркивание*/
+
+}
+a:after {
+	display: block;
+	position: absolute;
+	left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
+	width: 100%;/*задаём длинну линии до наведения курсора*/
+	height: 2px; /*задаём ширину линии*/
+	background-color: black; /*задаём цвет линии*/
+	content: "";
+	transition: width 0.3s ease-out; /*задаём время анимации*/
+}
+a:hover:after,
+a:focus:after {
+	width: 0; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+}
+
+.carousel-cell{     /*рамка вокруг кортинки*/
+  border: 3px solid black;
+}
+
+.text-footer-header{
+  margin-left: 20%; /*отступ*/
+  margin-top: 20%;
+  color: #777777 !important;/* !important - повысить приоритет стиля */
+  font-size: 100%;    /* размер шрифта*/
+}
+
+.footer{
+  background-color: black; /* Цвет фона */
+}
+
+.text-footer{
+  margin-left: 20%; /*отступ*/
+  /* margin: 20%; отступ */
+  color: aliceblue;
+
+}
+
+button {  /*кнопке как текст выглядит*/
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #777777;
+}
+
+li {
+  list-style-type: none; /* Убираем маркеры (кружочки)*/
+}
+
+ul {
+margin-left: 0; /* Отступ слева в браузере IE и Opera */
+padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+}
+
+.above-footer{
+  margin: 5%;
+  /*padding-top: 36px; /* опустим текст*/
+}
+
+.eyebrow{
+  font-size: 0.75rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #777777 !important; /* межбуквенное расстояние*/
+}
+
+.container{
+  margin-bottom: 20px;
+}
+
+select {
+  color: white;
+  background-color: black;
+  /* background:none;
+  border:none; */
+  outline:none; /*убирает обводку при нажатии */
+  -webkit-appearance: none;/*убрать стрелку из select */
+  -moz-appearance: none;/* убрать стрелку из select */
+  appearance: none;/* убрать стрелку из select */
+  padding: 10px; /* Поля */
+
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+}
+
+select option:not(:checked) {
+  color: black;
+  background-color: white;
+}
+
+select.minimal {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient( #ccc, transparent 0%);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+  background-image:
+    linear-gradient(45deg, gray 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, gray 50%),
+    linear-gradient(#ccc, transparent 0%);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  /* border-color: green; */
+  outline: 0;
+}
+
+.product-photo{
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* должно заполнять контейнер относительно его высоты и ширины */
+  /*width: 27%; /* Ширина */
+  /*float: left; /* Выстраиваем элементы по горизонтали */
+  /*margin: 0 0 0 3.5%; /* Отступ слева */
+  /*background: #ff0000; /* Цвет фона */
+  /*padding: 2%; /* Поля */
+ }
+
+ .product-photo-container {
+    height: 100%;
+    width: 100%;
+    /*position:relative;  нужно для замены картинки */
+  }
+
+  .demo {
+    position: relative;
+    /* top: 0; */
+    /* left: 0; */
+  }
+  .raz {
+    position: absolute;
+    /* top: 0; */
+    /* left: 0; */
+    border: 1px red solid;
+  }
+  .dva {
+    position: relative;
+    /* top: 30px; */
+    /* left: 30px; */
+    border: 1px green solid;
+  }
+
+img.dva:hover {    /* при новедении миняться картинка */
+    filter: alpha (Opacity=0);/* прозрачность для IE */
+    opacity: 0;/* прозрачность для других браузеров */
 }

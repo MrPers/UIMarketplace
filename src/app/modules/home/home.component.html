@@ -1,5 +1,4 @@
-
-<!-- <header class="py-3 my-4">
+<header class="py-3 my-4" id="destination" #destinationRef>
   <ul class="nav justify-content-center border-bottom pb-3 mb-3">
     <div>
       <li class="nav-item"><a routerLink="/admin" class="nav-link px-2 text-muted">YU</a></li>
@@ -40,61 +39,115 @@
       </li>
     </div>
   </ul>
+</header>
 
-
-</header> -->
-
-
-<!-- <form class="navbar-form navbar-left" action="/action_page.php">
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search">
-    <div class="input-group-btn">
-      <button class="btn btn-default" type="submit">
-        <i class="glyphicon glyphicon-search"></i>
-      </button>
+<div class="top-product">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-left" class = "eyebrow" >SHOP BY BRAND</h2>
+      </div>
+      <div class="col-6"><h2 class="text-left">Trending Items</h2></div>
+      <div class="col-6">
+        <p class="text-end">
+          <a href="URL" class="a-underline">View More</a>
+        </p>
+      </div>
     </div>
   </div>
-</form> -->
 
+  <div class="container">
+    <div class="row">
+      <div class="col-4 product-container">
+        <div class="product-photo-container demo">
+          <img class="product-photo raz" src="https://demo.htmlhunters.com/shopy/assets/images/demo/product-1.jpg" alt="бебе" />
+          <img class="product-photo dva" src="https://demo.htmlhunters.com/shopy/assets/images/demo/product-3-2.jpg" />
+        </div>
+    </div>
+      <div class="col-4 product-container demo">
+        <div class="product-photo-container">
+          <img class="product-photo raz" src="https://demo.htmlhunters.com/shopy/assets/images/demo/product-6-1.jpg" alt="" />
+          <img class="product-photo dva" src="https://demo.htmlhunters.com/shopy/assets/images/demo/product-3-2.jpg" />
+        </div>
+      </div>
+      <div class="col-4 product-container demo">
+        <div class="product-photo-container">
+          <img class="product-photo raz" src="https://game-tournaments.com/media/tournament/e5861.png" alt="" />
+          <img class="product-photo dva" src="https://demo.htmlhunters.com/shopy/assets/images/demo/product-3-2.jpg" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <!-- <carousel>
-    <slide>
-      <img src="https://game-tournaments.com/media/tournament/e5861.png" alt="first slide" width="100" height="111" style="display: block;">
-    </slide>
-    <slide>
-      <img src="https://shop.systemair.com/upload/processed/4ddec4eb_rs_0_595_.jpg" alt="third slide" width="100" height="111" style="display: block;">
-    </slide>
-  </carousel> -->
-
-<h2>Наши продавци:</h2>
+<div class="above-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-left" class = "eyebrow" >SHOP BY BRAND</h2>
+      </div>
+      <div class="col-6"><h2 class="text-left">Trending Brands</h2></div>
+      <div class="col-6">
+        <p class="text-end">
+          <a href="URL" class="a-underline">View More</a>
+        </p>
+      </div>
+    </div>
+  </div>
 
   <carousel>
-    <div class="carousel-cell" style="border: 3px solid black;">
+    <div class="carousel-cell">
         <img src="https://game-tournaments.com/media/tournament/e5861.png">
     </div>
-    <div class="carousel-cell" style="border: 3px solid black;">
+    <div class="carousel-cell" >
       <img src="https://game-tournaments.com/media/tournament/e5861.png">
     </div>
-    <div class="carousel-cell" style="border: 3px solid black;">
+    <div class="carousel-cell" >
       <img src="https://game-tournaments.com/media/tournament/e5861.png">
     </div>
-    <div class="carousel-cell" style="border: 3px solid black;">
+    <div class="carousel-cell" >
         <img src="https://game-tournaments.com/media/tournament/e5861.png">
     </div>
-    <div class="carousel-cell" style="border: 3px solid black;">
+    <div class="carousel-cell" >
       <img src="https://game-tournaments.com/media/tournament/e5861.png">
     </div>
-    <div class="carousel-cell" style="border: 3px solid black;">
+    <div class="carousel-cell" >
       <img src="https://game-tournaments.com/media/tournament/e5861.png">
     </div>
   </carousel>
+</div>
 
-  <footer class="py-3 my-4" >
-    <hr>
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3" >
-        <li class="nav-item"><a routerLink="" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a routerLink="/regist" class="nav-link px-2 text-muted">Registration</a></li>
-        <li class="nav-item"><a routerLink="/auth" class="nav-link px-2 text-muted">Authentication</a></li>
-        <li class="nav-item"><a routerLink="/admin" class="nav-link px-2 text-muted">Admin</a></li>
-    </ul>
-  </footer>
+<footer class="footer" >
+  <div class="row">
+    <div class="col-3">
+      <ul>
+        <li><h1 class="text-left text-footer-header">SHOP BY BRAND</h1></li>
+        <li><button [ngxScrollTo]="destinationRef" class="text-left text-footer">Our story</button></li>
+        <li><button href="#header" class="text-left text-footer">Careers</button></li>
+        <li><button href="#header" class="text-left text-footer">Press</button></li>
+        <li><button href="#header" class="text-left text-footer">Contact</button></li>
+      </ul>
+    </div>
+    <div class="col-3">
+      <h1 class="text-left text-footer-header">SHOP BY BRAND</h1>
+    </div>
+    <div class="col-3">
+      <li><h1 class="text-left text-footer-header">SHOP BY BRAND</h1></li>
+      <li>
+        <select class="minimal">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </li>
+    </div>
+  </div>
+</footer>
+
+<br><br>
+<select class="minimal">
+  <option>CSS SELECT arrow (minimal)</option>
+  <option>No external background image</option>
+  <option>No wrapper</option>
+</select>
