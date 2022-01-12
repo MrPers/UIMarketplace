@@ -1,28 +1,126 @@
-a {
+a.a-underline, a.a-grup-mini-menu{
 	position: relative;
-	color: black; /*задаём цвет ссылки*/
+	color: #4d4646; /*задаём цвет ссылки*/
 	cursor: pointer;
 	line-height: 1; /*задаём высоту строки*/
 	text-decoration: none; /*убираем подчёркивание*/
-
 }
-a:after {
+a.a-underline:after {
 	display: block;
 	position: absolute;
 	left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
 	width: 100%;/*задаём длинну линии до наведения курсора*/
 	height: 2px; /*задаём ширину линии*/
-	background-color: black; /*задаём цвет линии*/
+	background-color: #4d4646; /*задаём цвет линии*/
 	content: "";
 	transition: width 0.3s ease-out; /*задаём время анимации*/
 }
-a:hover:after,
-a:focus:after {
+a.a-underline:hover:after,
+a.a-underline:focus:after {
 	width: 0; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
 }
 
+/* .product-mini-container {
+  height: 100%;
+  width: 100%;
+  position:relative;
+} */
+/* .a-product-mini-menu:hover {
+  color: black;
+}
+.a-product-mini-menu{
+  height: 450px;
+  position: relative;
+  width: 256px;
+  cursor: pointer;
+  color: white;
+} */
+a.a-product-mini-menu{
+	position: relative;
+	text-decoration: none; /*убираем подчёркивание*/
+}
+.text-product-mini{
+  color: black; /*задаём цвет ссылки*/
+  display: block;/*тип отображения*/
+  width: 100%;
+  padding: 0.9375rem 1.875rem;/*внутренние отступы/поля*/
+  background: #ECE8E5;
+  text-align: center;
+}
+.product-mini-container:hover + p, .text-product-mini:hover{
+color: white;
+display: block;
+width: 100%;
+padding: 0.9375rem 1.875rem;
+background: black;
+text-align: center;
+}
+
+ul.grup-mini-menu{
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 100px; /*отступ*/
+}
+.grup-mini-menu li{
+  position: relative;
+  padding: 1em 2em;
+  font-size: 24px;
+  list-style: none;
+  white-space:nowrap;
+}
+.grup-mini-menu li::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  transition: .5s all linear;
+}
+.grup-mini-menu li:hover::after{
+  width: 100%;
+}
+.grup-mini-menu li::after{
+  left: 100%;     /*Направление, в котором отводится последнее подчеркивание выбранного элемента, слева направо*/
+}
+.grup-mini-menu li:hover::after{
+  left: 0;      /*Направление подчеркивания выбранного элемента слева направо*/
+}
+.grup-mini-menu li:hover ~ li::after {
+  left: 0;    /*Направление, в котором следующее подчеркивание выходит за пределы выбранного элемента, слева направо*/
+}
+
+.container{
+  margin-bottom: 20px;
+}
+
+.a-grup-container{
+  height: 100%;
+  width: 100%;
+}
+
+.my-text-right{
+  text-align: right;
+}
+
 .carousel-cell{     /*рамка вокруг кортинки*/
-  border: 3px solid black;
+  max-width: 150px;
+  max-height: 150px;
+  /* height: 9.375rem;
+  display: block; */
+  border: 1px solid rgb(192, 192, 192);
+}
+.carousel-cell:hover{     /*рамка вокруг кортинки*/
+  border: 1px solid black;
+}
+.img-carousel-cell{
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* должно заполнять контейнер относительно его высоты и ширины */
+
 }
 
 .text-footer-header{
@@ -37,10 +135,17 @@ a:focus:after {
 }
 
 .text-footer{
-  margin-left: 20%; /*отступ*/
-  /* margin: 20%; отступ */
+  margin-left: 20%;
   color: aliceblue;
 
+}
+
+.badge-success {
+  color: #fff;
+  background-color: #28a745;
+  position: absolute;
+  bottom: 0.625rem;
+  left: 0.625rem;
 }
 
 button {  /*кнопке как текст выглядит*/
@@ -53,6 +158,10 @@ button {  /*кнопке как текст выглядит*/
 
 button:hover {
   color: #777777;
+}
+
+.carousel-control-next{
+  color: black;
 }
 
 li {
@@ -78,10 +187,6 @@ padding-left: 0; /* Отступ слева в браузере Firefox, Safari,
   color: #777777 !important; /* межбуквенное расстояние*/
 }
 
-.container{
-  margin-bottom: 20px;
-}
-
 select {
   color: white;
   background-color: black;
@@ -103,12 +208,10 @@ select {
   line-height: 1.5em;
   padding: 0.5em 3.5em 0.5em 1em;
 }
-
 select option:not(:checked) {
   color: black;
   background-color: white;
 }
-
 select.minimal {
   background-image:
     linear-gradient(45deg, transparent 50%, gray 50%),
@@ -124,7 +227,6 @@ select.minimal {
     1px 1.5em;
   background-repeat: no-repeat;
 }
-
 select.minimal:focus {
   background-image:
     linear-gradient(45deg, gray 50%, transparent 50%),
@@ -143,42 +245,33 @@ select.minimal:focus {
   outline: 0;
 }
 
-.product-photo{
+.product-photo, .photo-product-mini{
   width: 100%;
   height: 100%;
   object-fit: contain; /* должно заполнять контейнер относительно его высоты и ширины */
-  /*width: 27%; /* Ширина */
-  /*float: left; /* Выстраиваем элементы по горизонтали */
-  /*margin: 0 0 0 3.5%; /* Отступ слева */
-  /*background: #ff0000; /* Цвет фона */
-  /*padding: 2%; /* Поля */
  }
 
- .product-photo-container {
+
+ .product-container{
+  margin-top: 10px;
+ }
+
+ .product-photo-container, .product-mini-container{
     height: 100%;
     width: 100%;
-    /*position:relative;  нужно для замены картинки */
-  }
-
-  .demo {
-    position: relative;
-    /* top: 0; */
-    /* left: 0; */
+    position:relative;  /* позиционируется в соответствии с нормальным потоком документа */
   }
   .raz {
-    position: absolute;
-    /* top: 0; */
-    /* left: 0; */
-    border: 1px red solid;
+    position: absolute; /*  удаляется из обычного потока документов */
+    /* border: 1px red solid; */
   }
   .dva {
-    position: relative;
-    /* top: 30px; */
-    /* left: 30px; */
-    border: 1px green solid;
+    position: relative;/* позиционируется в соответствии с нормальным потоком документа */
+    /* border: 1px green solid; */
   }
 
-img.dva:hover {    /* при новедении миняться картинка */
-    filter: alpha (Opacity=0);/* прозрачность для IE */
-    opacity: 0;/* прозрачность для других браузеров */
-}
+  img.dva:hover {    /* при новедении миняться картинка */
+      filter: alpha (Opacity=0);/* прозрачность для IE */
+      opacity: 0;/* прозрачность для других браузеров */
+  }
+
