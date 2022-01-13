@@ -1,0 +1,41 @@
+
+:host ::ng-deep .carousel-inner{
+  display: inline !important;
+
+}
+:host ::ng-deep .multilist-margin{
+  margin: 20px;
+  width: auto !important;
+}
+carousel-cell:hover{     /*рамка вокруг кортинки*/
+  border: 1px solid black;
+}
+.carousel-cell{
+  max-width: 150px !important;
+  border: 1px solid rgb(209, 2, 2);
+  /* margin: 20px; */
+  height: auto !important;
+}
+
+
+:host ::ng-deep .icon-next, :host ::ng-deep .icon-prev{
+  border: 1px solid #e9e9e9;
+  /* background: #fd0; Цвет фона */
+  padding: 10px; /* Поля вокруг текста */
+  /* height: 150px; */
+  /* width: 150px; */
+  /* margin:50px;  */
+  /* background-color: black; */
+  /* background-image: url(https://www.pngfind.com/pngs/m/132-1326247_chevron-right-chevron-svg-hd-png-download.png); */
+  background-repeat: no-repeat;
+  /* background-position: 1px 1em; */
+}
+
+:host ::ng-deep .icon-next:hover, :host ::ng-deep .icon-prev:hover{
+  border: 1px solid black;
+  /* background-image: url(https://newvz.ru/wp-content/uploads/2021/09/google-2.jpg); */
+  color: black;
+}
+.carousel{
+  background: rgb(117, 0, 128);
+}

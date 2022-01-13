@@ -18,7 +18,6 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
     CommonModule,
     HomeRoutingModule,
 
-    IvyCarouselModule,    //add carusel
     ScrollToModule      //add scrol
   ],
   providers: [

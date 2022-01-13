@@ -8,14 +8,6 @@ import { ScrollToConfigOptions, ScrollToService } from '@nicky-lenaers/ngx-scrol
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  // visibility: boolean = false;
-
-  // constructor(private scrollToService: ScrollToService) { }
-
-  // mouseHover(e:any) {
-  //   this.visibility = !this.visibility
-  //   console.log(this.visibility);
-  // }
 
    ngOnInit(): void {
 
