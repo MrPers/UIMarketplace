@@ -2,10 +2,3 @@
   <router-outlet></router-outlet>
 </div>
 
-<div class="carousel">
-  <carousel [noWrap]="true" [isAnimated]="true" [singleSlideOffset]="true" [showIndicators]="false" [interval]="0" [itemsPerSlide]="4">
-     <slide *ngFor="let slide of slides; let index=index">
-        <img class="carousel-cell" [src]="slide.image" alt="image slide" >
-     </slide>
-  </carousel>
-</div>

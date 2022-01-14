@@ -9,7 +9,6 @@ import { ErrorComponent } from './pages/error/error.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -22,9 +21,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     RouterModule,// надо для Router
     AppRoutingModule,// надо для Router
     HomeModule,// новый роут для Router
-    CarouselModule,    //add carusel
-
-    SlickCarouselModule, //add Carouse, ндо чтобы была в App
+    //CarouselModule,    //add carusel
     ScrollToModule.forRoot(), //add scrol, ндо чтобы была в App
 
     // FormsModule,

@@ -1,3 +1,38 @@
+/* .parallax-img{
+  overflow: hidden;
+  background: url(https://demo.htmlhunters.com/shopy/assets/images/demo/background-1.jpg) center no-repeat;
+} */
+
+.header-picture{
+  overflow:hidden;
+  height: 400px;
+  /* width: auto; */
+}
+.text-header-picture{
+  width:auto;
+  max-width:100%;
+  padding: 1rem 1rem;
+  background-color: #dc3545 !important;
+  border: 1px solid black;
+  margin: 30px;
+}
+.mini-menu{
+  margin: auto;
+}
+.container-mini-menu{
+  margin-bottom: 2.5rem;
+  justify-content: center !important;
+}
+.parallax-img{
+  /* background-image: url(https://demo.htmlhunters.com/shopy/assets/images/demo/background-1.jpg) ; */
+  position: absolute;
+  width: 100%;
+  height: auto;
+  /* z-index: -351; */
+  /* outline: 2px solid #000; */
+  /* border: 3px solid #fff; */
+}
+
 a.a-underline, a.a-grup-mini-menu{
 	position: relative;
 	color: #4d4646; /*задаём цвет ссылки*/
@@ -40,9 +75,25 @@ padding: 0.9375rem 1.875rem;
 background: black;
 text-align: center;
 }
-
-ul.grup-mini-menu{
+.header-text{
+  margin-top: 10px;
+  font-size: 4;
+}
+.header-a{
+  position: relative;
+	color: black; /*задаём цвет ссылки*/
+	cursor: pointer;
+	text-decoration: none; /*убираем подчёркивание*/
+}
+.container-header{
+  margin: 10px;
+}
+li.a-grup-header-picture,li.a-container-header{
+  margin: auto;
+}
+ul.grup-mini-menu, ul.grup-header-picture, ul.container-header{
   display: flex;
+  /* padding-inline-start: 0px; */
 }
 .grup-mini-menu li{
   position: relative;
@@ -50,7 +101,7 @@ ul.grup-mini-menu{
   font-size: 24px;
   list-style: none;
   white-space:nowrap;
-  margin: auto;
+  /* margin: auto; */
 }
 .grup-mini-menu li::after{
   content: '';
@@ -76,6 +127,7 @@ ul.grup-mini-menu{
 
 .container{
   margin-bottom: 20px;
+  /* margin: 20px; */
 }
 
 .my-text-right{
@@ -143,7 +195,7 @@ padding-left: 0; /* Отступ слева в браузере Firefox, Safari,
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: #777777 !important; /* межбуквенное расстояние*/
+  color: #777777 С; /* межбуквенное расстояние*/
 }
 
 select {
@@ -208,29 +260,55 @@ select.minimal:focus {
   width: 100%;
   height: 100%;
   object-fit: contain; /* должно заполнять контейнер относительно его высоты и ширины */
- }
+}
 
-
- .product-container{
+.product-container{
   margin-top: 10px;
- }
+}
 
- .product-photo-container, .product-mini-container{
-    height: 100%;
-    width: 100%;
-    position:relative;  /* позиционируется в соответствии с нормальным потоком документа */
-  }
-  .raz {
-    position: absolute; /*  удаляется из обычного потока документов */
-    /* border: 1px red solid; */
-  }
-  .dva {
-    position: relative;/* позиционируется в соответствии с нормальным потоком документа */
-    /* border: 1px green solid; */
-  }
+.product-photo-container, .product-mini-container{
+  height: 100%;
+  width: 100%;
+  position:relative;  /* позиционируется в соответствии с нормальным потоком документа */
+}
+.raz {
+  position: absolute; /*  удаляется из обычного потока документов */
+  /* border: 1px red solid; */
+}
+.dva {
+  position: relative;/* позиционируется в соответствии с нормальным потоком документа */
+  /* border: 1px green solid; */
+}
 
-  img.dva:hover {    /* при новедении миняться картинка */
-      filter: alpha (Opacity=0);/* прозрачность для IE */
-      opacity: 0;/* прозрачность для других браузеров */
-  }
+img.dva:hover {    /* при новедении миняться картинка */
+  filter: alpha (Opacity=0);/* прозрачность для IE */
+  opacity: 0;/* прозрачность для других браузеров */
+}
 
+:host ::ng-deep .carousel-inner{
+  justify-content: center !important;
+}
+:host ::ng-deep .multilist-margin{
+  margin: 20px;
+  width: auto !important;
+  margin-right: 20px !important;
+}
+.carousel-cell{
+  max-width: 150px !important;
+  height: auto !important;
+}
+:host ::ng-deep .icon-next, :host ::ng-deep .icon-prev{
+  outline: 2px solid rgb(156, 156, 156);
+  border: 3px solid rgba(255, 255, 255, 0);
+  padding: 10px; /* Поля вокруг текста */
+  background-repeat: no-repeat;
+}
+:host ::ng-deep .icon-next:hover, :host ::ng-deep .icon-prev:hover{
+  outline: 1px solid #000; /* Чёрная рамка */
+}
+:host ::ng-deep .item{
+  border: 1px solid rgb(139, 139, 139);
+}
+:host ::ng-deep .item:hover{
+  border: 1px solid #000;
+}

@@ -3,22 +3,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { FormsModule } from '@angular/forms';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
-
+import { ParallaxDirective } from '../../services/parallax.directive';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    ParallaxDirective
   ],
   imports: [
     TooltipModule,
     CommonModule,
     HomeRoutingModule,
-
-    ScrollToModule      //add scrol
+    ScrollToModule,      //add scrol
+    CarouselModule,    //add carusel
   ],
   providers: [
   //   CurrencyService,
