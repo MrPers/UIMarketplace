@@ -184,11 +184,6 @@ margin-left: 0; /* Отступ слева в браузере IE и Opera */
 padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
 }
 
-.above-footer{
-  margin: 5%;
-  /*padding-top: 36px; /* опустим текст*/
-}
-
 .eyebrow{
   font-size: 0.75rem;
   font-family: "Lato", sans-serif;
@@ -302,6 +297,13 @@ img.dva:hover {    /* при новедении миняться картинк�
   border: 3px solid rgba(255, 255, 255, 0);
   padding: 10px; /* Поля вокруг текста */
   background-repeat: no-repeat;
+  /* background: black; */
+}
+:host ::ng-deep .icon-prev{
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAdVBMVEX///8AAAB2dnb29vb7+/uhoaHq6urIyMhXV1fExMSvr68tLS27u7vR0dHi4uJAQEDx8fEoKCgaGhpkZGTd3d2UlJSqqqpMTEwzMzMiIiLW1tZpaWmLi4uFhYUNDQ3e3t6RkZFGRkZPT096enoXFxddXV2cnJxt7RYeAAAEnElEQVR4nO2dgU4iQRBEd1hABUUEFAFFUM7//8RTcirKTpFc2nT29dQXVIXsblFd01NVLUA9mC7SZN4beRP5LfTSBzpdby6/glX6wn3fm4096m06xLD2JmSN8U36jpU3I2OMFuknZt6cTLFcHwlMD96kLHF2rC+ltTcrQ1w2CUzJm5Yd7poFJszbdJMRiPkNOzmBN97MjLDKCUy33tRM0D3PCkwI31bf5wUiPof9n07tAOfe5Cwwm+QFzgmfimVeH+MXvBACO97kLDAQAjfe5CzwKgT2vMlZ4FEIHHiTs0DWqb3hwpucAbpTIfDKm50Butu8vjUhuhgP8wJvCF50JIzMNd3IPBOC7ishEBGQZiKnPR69yVmgJwRuvMlZ4FYIxDu1S29yFshHTimdeZOzwLMQuPQmZ4D6Oq9vR5hpq8hpOPZmZ4BZw+zsA4jISRmZKcGpqcgJ4dRU5IR3aq/e5CzwIASWyKkNELMzRORUC6e2Q0ROwqlNEJHTLi8QHzmdE4xMY8vpHxBGRkVOiOFgruX0jo03OQuoyOnOm5wFXoRAROSkZmeEyEm1nNaEyGk8zwucECKnoz76ARjDQfEIbglGRkVOf7zJWaBETm2HajnhIyeEU1ORE96p0SOn9ZM3OwOMRR99QTAyfdFyuicMB2XLyZucBVTkNPUmZwEVOb14k7OAipwQh15Ct5zKcLAFUJET4qS5ajkhIqe+cGqInRYNKxA+gRgOqsipHKxrA/CRk2o5IU6YZ1cgJEjkFHo4SIicusLIMA7WCYFDglMbiZODiMjpSTyC+OFgiZzagBI5tR0lcmo76H10WdcmGBkVOQ0RkVPpo7ccJXJqO/CRE76Prp5BRORUiQ4JoY8u3zKEPnolzOiOYGTekROIiJz2yAh8Jji1PepmgROMwOxveM6RmHsOrzHPYfZduqBIFN9DwgjmHXhPE8CXyv8WiJA0wOKVAP/xA+Q0OmtDnCgMkJeeqFky7I2aWywIc4tKz54giYaaH0IcHH65aoB0OMDGmQB9mgDLxk/02rzJ2UB1EyEBlbI3iIMyJzrCEAdH73lXuquPaIDp8xYloGoLSkBFAH7llT5Dug0QUDHsjTrLDQmo5Hl8wmKhqgRU3uRsgD9oUgIqb3I2wK8mD3A1c4B9bXrnHmJ58Im9iQwHFyGgwu8vDXDtUYDb0nVAhTjuXQIqb3I2UHv154QDmSfuRoA4OPr9Fjqg2kEaVPR7ZqoA68DCN6gQZ6QD3LtWAiqGvQnQgZcFcX5AhbhLtuLvX6pCjBgDBFSlQUVA8IBqyrA3s3Ve4pxhb/oioIKMGFWDascIqCo1YoQEVCvxvoE4uNKgIgC/xE8HVBAHF+CIX4SASjSoKAGVOMUIaVB1t3mJiGtA3iQGb1BBjvjhF/WHb1BtvMnZIEBAFaAgPhP2JkBABfkVa9GBhxQ2VYOK4VFVQAX51y8c3I03MzNklzR4E7NDrkHF+GDskQmovGlZorFBtfZmZYplw/wN8kH8QMOSBkag8YWjDjwkPj1Avf0mcAh6k37i0N5Admv8xNfkpsOIv49RD6aLNJn3/mvu/RdtizzIPC6ErAAAAABJRU5ErkJggg==)!important;
+}
+:host ::ng-deep .icon-next{
+  background-image: url(https://flyclipart.com/thumb2/right-arrow-arrow-right-arrows-icon-with-png-and-vector-format-241719.png)!important;
 }
 :host ::ng-deep .icon-next:hover, :host ::ng-deep .icon-prev:hover{
   outline: 1px solid #000; /* Чёрная рамка */
@@ -311,4 +313,10 @@ img.dva:hover {    /* при новедении миняться картинк�
 }
 :host ::ng-deep .item:hover{
   border: 1px solid #000;
+}
+
+.above-footer{
+  margin: 5%;
+  /* background-color: #28a745; */
+  /*padding-top: 36px; /* опустим текст*/
 }

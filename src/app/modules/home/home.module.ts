@@ -10,7 +10,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 @NgModule({
   declarations: [
     HomeComponent,
-    ParallaxDirective
+
+    //ParallaxDirective
   ],
   imports: [
     TooltipModule,

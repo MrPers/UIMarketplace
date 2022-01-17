@@ -1,22 +1,3 @@
-
-/* .parallax-img{
-  overflow: hidden;
-  background: url(https://demo.htmlhunters.com/shopy/assets/images/demo/background-1.jpg) center no-repeat;
-} */
-
-.header-picture{
-  overflow:hidden;
-  height: 400px;
-  /* width: auto; */
-}
-.text-header-picture{
-  width:auto;
-  max-width:100%;
-  padding: 1rem 1rem;
-  background-color: #dc3545 !important;
-  border: 1px solid black;
-  margin: 30px;
-}
 .mini-menu{
   margin: auto;
 }
@@ -283,32 +264,4 @@ select.minimal:focus {
 img.dva:hover {    /* при новедении миняться картинка */
   filter: alpha (Opacity=0);/* прозрачность для IE */
   opacity: 0;/* прозрачность для других браузеров */
-}
-
-:host ::ng-deep .carousel-inner{
-  justify-content: center !important;
-}
-:host ::ng-deep .multilist-margin{
-  margin: 20px;
-  width: auto !important;
-  margin-right: 20px !important;
-}
-.carousel-cell{
-  max-width: 150px !important;
-  height: auto !important;
-}
-:host ::ng-deep .icon-next, :host ::ng-deep .icon-prev{
-  outline: 2px solid rgb(156, 156, 156);
-  border: 3px solid rgba(255, 255, 255, 0);
-  padding: 10px; /* Поля вокруг текста */
-  background-repeat: no-repeat;
-}
-:host ::ng-deep .icon-next:hover, :host ::ng-deep .icon-prev:hover{
-  outline: 1px solid #000; /* Чёрная рамка */
-}
-:host ::ng-deep .item{
-  border: 1px solid rgb(139, 139, 139);
-}
-:host ::ng-deep .item:hover{
-  border: 1px solid #000;
 }
