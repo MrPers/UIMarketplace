@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { AuthGuardService } from './services/auth-guard.service';
+import { Directive, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
@@ -11,15 +12,16 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { FooterComponent } from './pages/footer/footer.component';
 import { HeaderComponent } from './pages/header/header.component';
-import { LoginComponent } from './modules/pages/login/login.component';
+import { AuthService } from './services/auth.service';
+import { ConstantsService } from './services/constants.service';
+import { CurrencyService } from './services/currency.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ErrorComponent,
     FooterComponent,
-    HeaderComponent,
-    // LoginComponent
+    HeaderComponent
   ],
   imports: [
     FormsModule,
@@ -29,12 +31,19 @@ import { LoginComponent } from './modules/pages/login/login.component';
     HomeModule,// новый роут для Router
     //CarouselModule,    //add carusel
     ScrollToModule.forRoot(), //add scrol, ндо чтобы была в App
+    HttpClientModule,  //add работа с Http
 
     // FormsModule,
     // HttpClientModule,
     // ReactiveFormsModule,
+    // Directive
   ],
-  providers: [],
+  providers: [
+    CurrencyService,
+    ConstantsService,
+    AuthGuardService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

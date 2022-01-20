@@ -274,7 +274,6 @@ select.minimal:focus {
   position: relative;/* позиционируется в соответствии с нормальным потоком документа */
   /* border: 1px green solid; */
 }
-
 img.dva:hover {    /* при новедении миняться картинка */
   filter: alpha (Opacity=0);/* прозрачность для IE */
   opacity: 0;/* прозрачность для других браузеров */

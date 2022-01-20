@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <ng-template ngFor let-item [ngForOf]="productsPriceShop" >
+    <div class="col-3 product-container">
+      <div class="product-photo-container">
+        <a href="{{item.priceId}}">
+          <img class="product-photo raz" src="{{item.photo}}"/>
+          <img class="product-photo dva" src="https://demo.htmlhunters.com/shopy/assets/images/demo/product-3-2.jpg" />
+          <p class="product-name">{{item.productName}}</p>
+        </a>
+      </div>
+      <p class="product-price">
+        {{item.netPrice}}
+      </p>
+      <p>
+        <a href="{{item.shopId}}" class="product-shop-name">{{item.shopName}}</a>
+      </p>
+    </div>
+  </ng-template>
+  </div>
+</div>
+priceId:number = 0;
+productId:number = 0;
+shopsId:number[] = [];
+prices:number[] = [];
+numberProduct:number = 0;
+productGroupID:number = 0;
+productName:string = "";
+shopsName:string[] = [];
+photo:string = "";
+
+id:number = 0;
+name:string = "";
+photo:string = "";
+productGroupID:number = 0;

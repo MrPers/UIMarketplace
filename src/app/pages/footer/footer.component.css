@@ -107,11 +107,6 @@ ul.grup-mini-menu, ul.grup-header-picture, ul.container-header{
   left: 0;    /*Направление, в котором следующее подчеркивание выходит за пределы выбранного элемента, слева направо*/
 }
 
-.container{
-  margin-bottom: 20px;
-  /* margin: 20px; */
-}
-
 .my-text-right{
   text-align: right;
 }
@@ -122,11 +117,6 @@ ul.grup-mini-menu, ul.grup-header-picture, ul.container-header{
   color: #777777 !important;/* !important - повысить приоритет стиля */
   font-size: 100%;    /* размер шрифта*/
 }
-
-.footer{
-  background-color: black; /* Цвет фона */
-}
-
 .text-footer{
   margin-left: 20%;
   color: aliceblue;
@@ -236,32 +226,10 @@ select.minimal:focus {
   /* border-color: green; */
   outline: 0;
 }
-
-.product-photo, .photo-product-mini{
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* должно заполнять контейнер относительно его высоты и ширины */
-}
-
-.product-container{
-  margin-top: 10px;
-}
-
-.product-photo-container, .product-mini-container{
-  height: 100%;
-  width: 100%;
-  position:relative;  /* позиционируется в соответствии с нормальным потоком документа */
-}
-.raz {
-  position: absolute; /*  удаляется из обычного потока документов */
-  /* border: 1px red solid; */
-}
-.dva {
-  position: relative;/* позиционируется в соответствии с нормальным потоком документа */
-  /* border: 1px green solid; */
-}
-
 img.dva:hover {    /* при новедении миняться картинка */
   filter: alpha (Opacity=0);/* прозрачность для IE */
   opacity: 0;/* прозрачность для других браузеров */
+}
+.footer {
+  background-color: black;
 }

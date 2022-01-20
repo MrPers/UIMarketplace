@@ -7,3 +7,9 @@
 .col-12{
   border:5px;
 }
+.container-color{
+  background: #777777;
+}
+.content{
+  min-height:100%;
+}

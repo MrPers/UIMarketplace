@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
-declare var $: any; //jquery
+import {ConstantsService} from './services/constants.service';
+import { CurrencyService } from './services/currency.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +9,6 @@ declare var $: any; //jquery
 })
 
 export class AppComponent {
-  
-  constructor() { }
 
-  ngOnInit(){
-
-  }
 
 }
