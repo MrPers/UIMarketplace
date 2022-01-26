@@ -9,6 +9,10 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./modules/home/home.module').then((el)=>el.HomeModule)
   },
+  {
+    path: 'auth',
+    loadChildren: () => import('./modules/auth/auth.module').then((el)=>el.AuthModule)
+  },
   { path: '**', component: ErrorComponent },
 ];
 

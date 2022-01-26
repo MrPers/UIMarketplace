@@ -15,6 +15,7 @@ import { HeaderComponent } from './pages/header/header.component';
 import { AuthService } from './services/auth.service';
 import { ConstantsService } from './services/constants.service';
 import { CurrencyService } from './services/currency.service';
+import { AuthModule } from './modules/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,11 @@ import { CurrencyService } from './services/currency.service';
     RouterModule,// надо для Router
     AppRoutingModule,// надо для Router
     HomeModule,// новый роут для Router
+    AuthModule,// новый роут для Router
     //CarouselModule,    //add carusel
     ScrollToModule.forRoot(), //add scrol, ндо чтобы была в App
     HttpClientModule,  //add работа с Http
 
-    // FormsModule,
     // HttpClientModule,
     // ReactiveFormsModule,
     // Directive

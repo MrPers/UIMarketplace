@@ -1,9 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 // import { CSVRecord } from '../modules/admin/pages/add-data/add-data.component';
-import { URLpath} from './constants.service';
+import { URLpath, User} from './constants.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,9 @@ export class CurrencyService {
     return this.http.get(URLpath + 'get-all-product-price-shop');
   };
 
+  register(userRegistration: User) {
+    return this.http.post(URLpath + 'account/register', userRegistration);
+  }
 
 
 

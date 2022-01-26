@@ -10,7 +10,7 @@ const Post_logout_redirect_uri = 'http://localhost:4200/';
 const Response_type = "code";
 const AutomaticSilentRenew = true;
 const LoadUserInfo = true;
-const Scope = "openid profile Order";
+const Scope = "openid profile";
 const Client_id = 'client_angular_id';
 export const URLpath = "https://localhost:5001/";
 
@@ -18,87 +18,65 @@ export const URLpath = "https://localhost:5001/";
   providedIn: 'root'
 })
 export class ConstantsService {
-  public productsResult: ProductsResult[]=[];
-  public shopsResult: ShopsResult[]=[];
-  public pricesResult: PricesResult[]=[];
-  public productsPriceShop: ProductsPriceShop[]=[];
+  // public pageProducts: PageProduct[]=[];
+  public pageMenuProducts: PageMenuProduct[]=[];
+  public products : Product []=[];
+  public shops : Shop []=[];
+  public prices : Price []=[];
+  public productGroups : ProductGroup []=[];
+  public commentProducts : CommentProduct []=[];
+  public users : User []=[];
 
   constructor(private currencyService:CurrencyService) {
-
   }
 
   definitelyThereProducts: Promise<void>= new Promise(resolve =>
   {
-    if(this.productsResult.length == 0){
+    if(this.products .length == 0){
       this.currencyService.getAllProductPriceShop()
       .subscribe((data: any) =>
       {
-        this.productsResult=data["productsResult"];
-        this.shopsResult=data["shopsResult"];
-        this.pricesResult=data["pricesResult"];
+        this.products =data["productsResult"];
+        this.shops =data["shopsResult"];
+        this.prices =data["pricesResult"];
+        this.productGroups =data["productGroupsResult"];
+        this.commentProducts =data["commentProductsResult"];
+        this.users =data["usersResult"];
 
-        for (let index = 0; index < this.productsResult.length; index++) {
-          // var productGroupID: number = 0;
-          // var productName:string = "";
-          // var photo: string = "";
-          var shopsName:string = [];
-          // for (let i = 0; i < this.productsResult.length; i++) {
-          //   if(this.productsResult[i].id ==this.pricesResult[index].productId){
-          //     productGroupID = this.productsResult[i].productGroupID;
-          //     productName = this.productsResult[i].name;
-          //     photo = "../../../../../assets/images/" + this.productsResult[i].photo;
-          //     break;
-          //   }
-          // }
-          for (let i = 0; i < this.shopsResult.length; i++) {
-            if(this.shopsResult[i].id ==this.shopsName[index].shopId){
-              shopName=this.shopsResult[i].name;
-              break;
+        for (let index = 0; index < this.products .length; index++) {
+          var price:number = 0;
+          var prices:number[] = [];
+          var pricesBoolean:boolean = false;
+
+          for (let i = 0; i < this.prices .length; i++) {
+            if(this.products [index].id ==this.prices [i].productId){
+              var sum:number = 0;
+              prices.push(this.prices [i].netPrice);
+              if(prices.length !== 1){
+                for (let t = 0; t < prices.length; t++) {
+                  sum = prices[t] + sum;
+                }
+                price = sum/prices.length;
+                pricesBoolean = true;
+              }
+              else{
+                price =prices[0];
+              }
             }
           }
-          this.productsPriceShop.push({
-            priceId:0,
-            productId : this.productsResult[index].id,
-            shopsId : 0,
-            prices : 0,
-            numberProduct : 0,
-            productGroupID : this.productsResult[index].productGroupID,
-            productName : this.productsResult[index].name,
-            shopsName : "",
-            photo : "../../../../../assets/images/" + this.productsResult[index].photo,
+
+          this.pageMenuProducts.push({
+            productId : this.products [index].id,
+            price : price,
+            pricesBoolean : pricesBoolean,
+            productGroupID : this.products [index].productGroupID,
+            productName : this.products [index].name,
+            photo : "../../../../../assets/images/" + this.products [index].photo,
           });
         }
-        // for (let index = 0; index < this.pricesResult.length; index++) {
-        //   var productGroupID: number = 0;
-        //   var productName:string = "";
-        //   var photo: string = "";
-        //   var shopName:string = "";
-        //   for (let i = 0; i < this.productsResult.length; i++) {
-        //     if(this.productsResult[i].id ==this.pricesResult[index].productId){
-        //       productGroupID = this.productsResult[i].productGroupID;
-        //       productName = this.productsResult[i].name;
-        //       photo = "../../../../../assets/images/" + this.productsResult[i].photo;
-        //       break;
-        //     }
-        //   }
-        //   for (let i = 0; i < this.shopsResult.length; i++) {
-        //     if(this.shopsResult[i].id ==this.pricesResult[index].shopId){
-        //       shopName=this.shopsResult[i].name;
-        //       break;
-        //     }
-        //   }
-        //   this.productsPriceShop.push({
-        //     priceId:this.pricesResult[index].id,
-        //     productId : this.pricesResult[index].productId,
-        //     shopId : this.pricesResult[index].shopId,
-        //     netPrice : this.pricesResult[index].netPrice,
-        //     numberProduct : this.pricesResult[index].numberProduct,
-        //     productGroupID : productGroupID,
-        //     productName : productName,
-        //     shopName : shopName,
-        //     photo : photo,
-        //   });
-        // }
+
+        // this.lineChartLabels = resArray.map((el:any)=>{ return ((el.data).split('T')[0]+ ' ' + (el.data).split('T')[1]); });
+
         resolve();
       });
     }
@@ -129,31 +107,62 @@ export function getClientSettings(): UserManagerSettings {
 
 }
 
-export class PricesResult{
-  id:number = 0;
-  netPrice:number = 0;
-  numberProduct:number = 0;
-  productId:number = 0;
-  shopId:number = 0;
-}
-export class ProductsPriceShop{
-  priceId:number = 0;
-  productId:number = 0;
-  shopsId:number[] = [];
-  prices:number[] = [];
-  numberProduct:number = 0;
+
+// export class PageCommentProduct{
+//   productId:number = 0;
+//   name:string = "";
+//   photo:string = "";
+//   productGroupID:number = 0;
+//   productGroupName:string = "";
+//   // commentDepartureDate: string = "";
+//   // commentId:number = 0;
+//   // userId:number = 0;
+//   // commentText:string = "";
+//   commentId:number = 0;
+//   commentDepartureDate: string = "";
+//   productId:number = 0;
+//   userId:number = 0;
+//   text:string = "";
+// }
+export class PageMenuProduct{
+  productId:string = "";
+  price:number = 0;
+  pricesBoolean:boolean = true;
   productGroupID:number = 0;
   productName:string = "";
-  shopsName:string[] = [];
   photo:string = "";
 }
-export class ProductsResult{
+export class ProductGroup {
+  Id:number = 0;
+  name:string = "";
+}
+export class CommentProduct {
   id:number = 0;
+  departureDate: string = "";
+  productId:number = 0;
+  userId:number = 0;
+  text:string = "";
+}
+export class Price {
+  id:string = "";
+  netPrice:number = 0;
+  numberProduct:number = 0;
+  productId:string = "";
+  shopId:number = 0;
+}
+export class Product {
+  id:string = "";
   name:string = "";
   photo:string = "";
   productGroupID:number = 0;
 }
-export class ShopsResult{
+export class Shop {
   id:number = 0;
   name:string = "";
+}
+export class User{
+  id:any;
+  userName:string = "";
+  password:string = "";
+  email:string = "";
 }

@@ -43,7 +43,7 @@ export class AuthService {
     this.manager.events.addAccessTokenExpired(() => {
         // console.log("access token expired");
     });
-}
+  }
 
   isLoggedIn(): boolean {
     return this.user != null && !this.user.expired;
