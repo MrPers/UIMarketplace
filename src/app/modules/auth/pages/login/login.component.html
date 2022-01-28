@@ -12,26 +12,22 @@
               </li>
             </ul>
           <div class="card-body" [style.display]="visibility?'block':'none'">
-            <fieldset>
-              <div class="row">
-                <div class="col-12">
-                    <input type="text" id="inputEmail" class="form-control form-control-lg" placeholder="Email address" required="">
-                </div>
+            <form #d="ngForm" (ngSubmit)="onAuthenticationSubmit()">
+              <div class="form-group">
+                <input type="text" id="name" name="name" [(ngModel)]="userAuthentication.userName" class="form-control" placeholder="Your name" required autoFocus>
               </div>
-              <div class="row">
-                <div class="col-12">
-                    <input type="text" id="inputPassword" class="form-control form-control-lg" placeholder="Password" required="">
-                </div>
+              <div class="form-group">
+                <input type="password" id="password" name="password" [(ngModel)]="userAuthentication.password" class="form-control" placeholder="Password" aria-describedby="passwordHelp" required>
               </div>
-            </fieldset>
-            <div class="col-12">
-              <button href="" class="btn btn-primary btn-block">
-                Sign In
-              </button>
-            </div>
+              <div class="col-12">
+                <button href="" [disabled]="!d.form.valid" class="btn btn-primary btn-block">
+                  Authentication
+                </button>
+              </div>
+            </form>
           </div>
           <div class="card-body" [style.display]="!visibility?'block':'none'" >
-            <form #f="ngForm" (ngSubmit)="onSubmit()">
+            <form #f="ngForm" (ngSubmit)="onRegistrationSubmit()">
             <div class="form-group">
               <input type="text" id="name" name="name" [(ngModel)]="userRegistration.userName" class="form-control" placeholder="Your name" required autoFocus>
             </div>
@@ -40,8 +36,8 @@
                 <small [hidden]="email.valid || (email.pristine && !submitted)" class="text-danger">Please enter a valid email</small>
             </div>
             <div class="form-group">
-                <input type="password" id="password" name="password" [(ngModel)]="userRegistration.password" class="form-control" placeholder="Password" aria-describedby="passwordHelp" required>
-                <small id="passwordHelp" class="form-text text-muted">Min. 6 characters with at least one non alphanumeric character</small>
+                <input type="password" id="password" name="password" #password="ngModel" [(ngModel)]="userRegistration.password" class="form-control" placeholder="Password" password required>
+                <small [hidden]="password.valid || (password.pristine && !submitted)" class="text-danger">Min. 6 characters with at least one non alphanumeric character</small>
               </div>
               <div class="col-12">
                 <button href="" [disabled]="!f.form.valid" class="btn btn-primary btn-block">

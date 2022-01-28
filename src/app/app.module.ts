@@ -1,10 +1,10 @@
 import { AuthGuardService } from './services/auth-guard.service';
-import { Directive, NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HomeModule } from './modules/home/home.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ErrorComponent } from './pages/error/error.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,26 @@ import { AuthService } from './services/auth.service';
 import { ConstantsService } from './services/constants.service';
 import { CurrencyService } from './services/currency.service';
 import { AuthModule } from './modules/auth/auth.module';
+// import { CookieManagerService } from './services/cookie-manager.service';
+import { AuthInterceptor, LogLevel, OidcConfigService } from 'angular-auth-oidc-client';
+
+// let t: string[]=[];
+// t.push("https://localhost:5001");
+// export function configureAuth(oidcConfigService: OidcConfigService) {
+//   return () =>
+//     oidcConfigService.withConfigs({
+//       authority:'http://localhost:4200/auth-callback' ,//
+//       redirectUrl: 'http://localhost:4200/auth-callback',//
+//       postLogoutRedirectUri: 'http://localhost:4200/',//
+//       clientId: 'client_angular_id',//
+//       scope: "openid profile",//
+//       responseType: 'code',//
+//       silentRenew: true,//
+//       useRefreshToken: true,//.
+//       renewTimeBeforeTokenExpiresInSeconds: 10,//.
+//       logLevel: LogLevel.Debug,//.
+//     });
+// }
 
 @NgModule({
   declarations: [
@@ -43,7 +63,20 @@ import { AuthModule } from './modules/auth/auth.module';
     CurrencyService,
     ConstantsService,
     AuthGuardService,
-    AuthService
+    AuthService,
+    // CookieManagerService,
+    // OidcConfigService,
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: configureAuth,
+    //   deps: [OidcConfigService],
+    //   multi: true,
+    // },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptor,
+    //   multi: true,
+    // },
   ],
   bootstrap: [AppComponent]
 })

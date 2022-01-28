@@ -22,6 +22,9 @@ export class CurrencyService {
     return this.http.post(URLpath + 'account/register', userRegistration);
   }
 
+  authentication(userRegistration: User) {
+    return this.http.post(URLpath + 'account/login', userRegistration);
+  }
 
 
   // getHistoryLette(user: User){

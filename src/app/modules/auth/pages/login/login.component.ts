@@ -12,18 +12,15 @@ export class LoginComponent implements OnInit {
 
   error: boolean = false;
   userRegistration: User = new User();
+  userAuthentication: User = new User();
   submitted: boolean = false;
   visibility: boolean = true;
 
   constructor(private currencyService: CurrencyService,private authService: AuthService) { }
 
   ngOnInit(): void {
-    // this.authService.startAuthentication().then((t:any) =>
-    // {
-      // debugger;
-    //   this.url = t;
-    // });
   }
+
 
   toggleOn(){
     this.visibility=true;
@@ -31,7 +28,15 @@ export class LoginComponent implements OnInit {
   toggleOff(){
     this.visibility=false;
   }
-  onSubmit() {
+  onAuthenticationSubmit() {
+    this.currencyService.authentication(this.userAuthentication)
+    .subscribe((data: any) =>
+    {
+      debugger;
+      this.authService.getUser();
+    });
+  }
+  onRegistrationSubmit() {
     this.currencyService.register(this.userRegistration)
       .subscribe(
         result => {

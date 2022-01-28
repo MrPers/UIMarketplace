@@ -7,6 +7,15 @@ import {getClientSettings } from './constants.service';
   providedIn: 'root'
 })
 
+// getUser : возвращает обещание загрузить объект User для текущего аутентифицированного пользователя.
+// removeUser : возвращает обещание удалить из любого хранилища текущего аутентифицированного пользователя.
+// signinRedirect : возвращает обещание вызвать перенаправление текущего окна на конечную точку авторизации.
+// signinRedirectCallback : возвращает обещание обработать ответ от конечной точки авторизации. Результатом обещания является аутентифицированный пользователь.
+// signinSilent : возвращает обещание инициировать тихий запрос (через iframe) к конечной точке авторизации. Результатом обещания является аутентифицированный Пользователь.
+// signinSilentCallback : возвращает обещание уведомить родительское окно об ответе от конечной точки авторизации.
+// signoutRedirect : возвращает обещание вызвать перенаправление текущего окна на конечную точку конечного сеанса.
+// signoutRedirectCallback : возвращает обещание обработать ответ от конечной точки конечного сеанса.
+
 export class AuthService {
 
   private manager = new UserManager(getClientSettings());
@@ -58,6 +67,12 @@ export class AuthService {
     return headers;
   }
 
+  getUser(): Promise<void> {
+    return this.manager.getUser().then((user) => {
+      this.user = user!;
+    });
+  }
+
   startAuthentication(): Promise<void> {
     return this.manager.signinRedirect();
   }
@@ -72,3 +87,4 @@ export class AuthService {
     });
   }
 }
+
