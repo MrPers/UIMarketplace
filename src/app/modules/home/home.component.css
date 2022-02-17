@@ -73,7 +73,7 @@ text-align: center;
 }
 .header-text{
   margin-top: 10px;
-  font-size: 4;
+  font-size: 4px;
 }
 .header-a{
   position: relative;
@@ -186,7 +186,7 @@ padding-left: 0; /* Отступ слева в браузере Firefox, Safari,
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: #777777 С; /* межбуквенное расстояние*/
+  color: #777777; /* межбуквенное расстояние*/
 }
 
 select {
@@ -197,7 +197,7 @@ select {
   outline:none; /*убирает обводку при нажатии */
   -webkit-appearance: none;/*убрать стрелку из select */
   -moz-appearance: none;/* убрать стрелку из select */
-  appearance: none;/* убрать стрелку из select */
+  /*appearance: none;*//* убрать стрелку из select */
   padding: 10px; /* Поля */
 
   margin: 0;
@@ -271,7 +271,7 @@ select.minimal:focus {
   /* border: 1px green solid; */
 }
 img.dva:hover {    /* при новедении миняться картинка */
-  filter: alpha (Opacity=0);/* прозрачность для IE */
+  /*filter: alpha (Opacity=0);*//* прозрачность для IE */
   opacity: 0;/* прозрачность для других браузеров */
 }
 

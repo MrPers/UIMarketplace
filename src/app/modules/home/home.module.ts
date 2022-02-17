@@ -10,12 +10,19 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { ConstantsService } from '../../services/constants.service';
 import { CurrencyService } from '../../services/currency.service';
 import { ProductComponent } from './pages/product/product.component';
+import { ShopComponent } from './pages/shop/shop.component';
+import { CabinetComponent } from './pages/cabinet/cabinet.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { AddproductComponent } from '../auth/pages/addproduct/addproduct.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     MenuComponent,
     ProductComponent,
+    ShopComponent,
+    CabinetComponent,
+    CartComponent,
   ],
   imports: [
     TooltipModule,
@@ -31,7 +38,7 @@ import { ProductComponent } from './pages/product/product.component';
     ConstantsService
   ],
   bootstrap: [
-    HomeComponent
+    HomeComponent,
   ]
 })
 export class HomeModule { }

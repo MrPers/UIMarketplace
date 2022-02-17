@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AuthService } from './auth.service';
+import { DBkeys, User} from './constants.service';
 // import { CSVRecord } from '../modules/admin/pages/add-data/add-data.component';
-import { URLpath, User} from './constants.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,30 +14,33 @@ export class CurrencyService {
 
   constructor(private http:HttpClient, private authService: AuthService ) {}
 
-  getAllProductPriceShop(){
-    return this.http.get(URLpath + 'get-all-product-price-shop');
+  getProductById(id: string){
+    return this.http.get(DBkeys.URLpath + '/get-product-by-id/' + id, { headers: this.authService.getAuthorizationHeaderValue()});
   };
 
-  register(userRegistration: User) {
-    return this.http.post(URLpath + 'account/register', userRegistration);
-  }
+  getProductByShopId(id: string){
+    return this.http.get(DBkeys.URLpath + '/get-product-by-shop-id/' + id);
+  };
 
-  authentication(userRegistration: User) {
-    return this.http.post(URLpath + 'account/login', userRegistration);
-  }
+  getProductAll(){
+    return this.http.get(DBkeys.URLpath + '/get-product-all');
+  };
 
+  authUser(user: User){
+    return this.http.post(DBkeys.URLpath + "/Account/login", user);
+  };
 
-  // getHistoryLette(user: User){
-  //   return this.http.get(URLpath + 'get-history-lette/' + user.id, { headers: this.authService.getAuthorizationHeaderValue()});
-  // };
+  logout(){
+    return this.http.get(DBkeys.URLpath + "/Account/logout");
+  };
 
-  // updateUser(user: User){
-  //   let formData = new FormData();
-  //   formData.append("Id", user.id.toString());
-  //   formData.append("Name", user.name);
-  //   formData.append("Surname", user.surname);
-  //   formData.append("Email", user.email);
-  //   return this.http.post(URLpath + "update-user", formData, { headers: this.authService.getAuthorizationHeaderValue()});
+  addUser(user: User){
+    return this.http.post(DBkeys.URLpath + "/Account/register", user);
+  };
+
+  // userAuthentication(user: User){
+  //   return this.http.post(DBkeys.URLpath + "Account/authentication", user);
   // };
 
 }
+

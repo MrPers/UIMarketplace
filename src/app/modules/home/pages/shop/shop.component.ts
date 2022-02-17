@@ -1,15 +1,15 @@
-import { ConstantsService, Product, ProductGroup} from './../../../../services/constants.service';
+import { ActivatedRoute } from '@angular/router';
+import { ConstantsService, Product, ProductGroup, Shop } from './../../../../services/constants.service';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CurrencyService } from '../../../../services/currency.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  selector: 'app-shop',
+  templateUrl: './shop.component.html',
+  styleUrls: ['./shop.component.css']
 })
-export class MenuComponent implements OnInit {
+export class ShopComponent implements OnInit {
+  shop: Shop = new Shop();
   groups: ProductGroup[]=[];
   products: Product[]=[];
   productsAll: Product[]=[];
@@ -18,37 +18,26 @@ export class MenuComponent implements OnInit {
   constructor(private constantsService: ConstantsService, private currencyService:CurrencyService, private route: ActivatedRoute){}
 
   ngOnInit() {
-    let timeId ="";
-    let id: string = ""
-    this.route.queryParams
-    // .filter(params => params.id)
-    .subscribe(params => {
-      if(params.id){
-        id = params.id;
-        timeId = atob(id);
-      }
-    }
-  );
-
-    this.currencyService.getProductAll()
+    const routeParams = this.route.snapshot.paramMap;
+    const productIdFromRoute = String(routeParams.get('Id'));
+    let timeId = atob(productIdFromRoute);
+    this.currencyService.getProductByShopId(timeId)
       .subscribe((data: any) =>
       {
+        this.shop = data['shopsResult'];
         this.products = data['productsResult'];
-        // this.groups = data['productGroupResult'];
         let groups = data['productGroupResult'];
         for (let index = 0; index < groups.length; index++) {
-         this.groups.push({
-           id: groups[index].id,
-           name: groups[index].name,
-           isChecked: false
-         });
+          this.groups.push({
+            id: groups[index].id,
+            name: groups[index].name,
+            isChecked: false
+          });
         }
         this.productsAll = this.products;
 
-        if(id !== ""){
           this.groups.filter(group => group.id == timeId)[0].isChecked = true;
           this.displayProductGroups(timeId);
-        }
 
       });
 
