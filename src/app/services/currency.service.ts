@@ -15,7 +15,10 @@ export class CurrencyService {
   constructor(private http:HttpClient, private authService: AuthService ) {}
 
   getProductById(id: string){
-    return this.http.get(DBkeys.URLpath + '/get-product-by-id/' + id, { headers: this.authService.getAuthorizationHeaderValue()});
+    let r = this.authService.getAuthorizationHeaderValue();
+    let r2 = DBkeys.URLpath + '/get-product-by-id/' + id;
+    debugger;
+    return this.http.get(r2, { headers: r});
   };
 
   getProductByShopId(id: string){

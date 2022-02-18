@@ -17,7 +17,6 @@ import { CurrencyService } from './services/currency.service';
 import { AuthModule } from './modules/auth/auth.module';
 // import { CookieManagerService } from './services/cookie-manager.service';
 import { AuthInterceptor, LogLevel, OidcConfigService } from 'angular-auth-oidc-client';
-import { AuthCallbackComponent } from './pages/auth-callback/auth-callback.component';
 import { RefreshComponent } from './pages/refresh/refresh.component';
 import { OidcHelperService } from './services/oidc-helper.service';
 import { OAuthModule, OAuthService } from 'angular-oauth2-oidc';
@@ -31,7 +30,6 @@ import { LocalStoreManager } from './services/local-store-manager.service';
     ErrorComponent,
     FooterComponent,
     HeaderComponent,
-    AuthCallbackComponent,
     RefreshComponent,
 
   ],

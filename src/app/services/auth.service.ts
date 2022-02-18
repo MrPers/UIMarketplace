@@ -60,9 +60,18 @@ export class AuthService {
   }
 
   getAuthorizationHeaderValue(): HttpHeaders {
-    let headers = new HttpHeaders({ 'Authorization': `${DBkeys.ACCESS_TOKEN} ${this.oidcHelperService.accessToken}`});
     // let headers = new HttpHeaders({ 'Authorization': `Bearer ${this.oidcHelperService.accessToken}`});
-    debugger;
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + this.oidcHelperService.accessToken,
+      'Content-Type': 'application/json',
+      Accept: 'application/json, text/plain, */*'
+    });
+    // const headers2 = new HttpHeaders();
+    // debugger;
+    // if(headers2 === headers){
+
+    // }
     return headers;
   }
 
