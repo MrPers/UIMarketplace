@@ -13,11 +13,11 @@ export class ConstantsService {
 
 export class User{
 
-  constructor(id?: string, userName?: string, email?: string, roles?: string[]) {
+  constructor(id?: string, userName?: string, roles?: string[], jti?: string) {
     this.id = id;
     this.userName = userName;
-    this.email = email;
     this.roles = roles;
+    this.jti = jti;
   }
 
   id:any;
@@ -25,6 +25,7 @@ export class User{
   password:string = "";
   email:string = "";
   roles:string[] = [];
+  jti:string = "";
 }
 export class Product{
   id:any;
@@ -84,26 +85,6 @@ export class DBkeys {
   public static readonly SHOW_DASHBOARD_NOTIFICATIONS = 'show_dashboard_notifications';
   public static readonly SHOW_DASHBOARD_TODO = 'show_dashboard_todo';
   public static readonly SHOW_DASHBOARD_BANNER = 'show_dashboard_banner';
-}
-export interface AccessToken {
-  nbf: number;
-  exp: number;
-  iss: string;
-  aud: string | string[];
-  client_id: string;
-  sub: string;
-  auth_time: number;
-  idp: string;
-  role: string | string[];
-  permission: PermissionValues | PermissionValues[];
-  name: string;
-  email: string;
-  phone_number: string;
-  fullname: string;
-  jobtitle: string;
-  configuration: string;
-  scope: string | string[];
-  amr: string[];
 }
 export interface AppTheme {
     id: number;

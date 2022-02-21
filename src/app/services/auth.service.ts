@@ -6,7 +6,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ConfigurationService } from './configuration.service';
-import { DBkeys, LoginResponse, AccessToken, User, PermissionValues } from './constants.service';
+import { DBkeys, LoginResponse, User, PermissionValues } from './constants.service';
 import { JwtHelper } from './jwt-helper';
 
 import { LocalStoreManager } from './local-store-manager.service';
@@ -60,10 +60,10 @@ export class AuthService {
   }
 
   getAuthorizationHeaderValue(): HttpHeaders {
-    var headers = new HttpHeaders().set( 'Authorization', 'Bearer ' + this.oidcHelperService.accessToken);
-    // headers = headers.set( 'Accept', 'application/json, text/plain, */*');
+    var headers = new HttpHeaders();
+    headers = headers.set( 'Accept', 'application/json, text/plain, */*');
     headers = headers.set('Content-Type', 'application/json');
-    // headers = headers
+    headers = headers.set( 'Authorization', 'Bearer ' + this.oidcHelperService.accessToken);
     // headers = headers.append( 'Content-Type', 'application/json');
     // headers = headers.append( 'Authorization', 'Bearer ' + this.oidcHelperService.accessToken);
     // headers = headers.append( 'Accept', 'application/json, text/plain, */*');
@@ -128,7 +128,7 @@ export class AuthService {
     tokenExpiryDate.setSeconds(tokenExpiryDate.getSeconds() + expiresIn);
     const accessTokenExpiry = tokenExpiryDate;
     const jwtHelper = new JwtHelper();
-    const decodedAccessToken = jwtHelper.decodeToken(accessToken) as AccessToken;
+    const decodedAccessToken = jwtHelper.decodeToken(accessToken);
 
     const permissions: PermissionValues[] = Array.isArray(decodedAccessToken.permission) ? decodedAccessToken.permission : [decodedAccessToken.permission];
 
@@ -136,13 +136,16 @@ export class AuthService {
       this.configurations.import(decodedAccessToken.configuration);
     }
 
+    debugger;
+
     const user = new User(
       decodedAccessToken.sub,
       decodedAccessToken.name,
-      decodedAccessToken.email,
-      Array.isArray(decodedAccessToken.role) ? decodedAccessToken.role : [decodedAccessToken.role]
+      decodedAccessToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"],
+      decodedAccessToken.jti
     );
-    debugger;
+
+    console.log(accessToken);
 
     this.saveUserDetails(user, permissions, accessToken, refreshToken, accessTokenExpiry, rememberMe);
 

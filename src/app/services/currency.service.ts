@@ -23,7 +23,6 @@ export class CurrencyService {
     // return this.http.post(DBkeys.URLpath + '/get-product-by-id',body, { headers: headers });
 
     let headers = this.authService.getAuthorizationHeaderValue();
-    debugger;
 
     return this.http.get(DBkeys.URLpath + '/get-product-by-id/' + id, { headers: headers });
   };

@@ -1,4 +1,3 @@
-// import { AlertService } from './services/alert.service';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,14 +14,13 @@ import { HeaderComponent } from './pages/header/header.component';
 import { ConstantsService } from './services/constants.service';
 import { CurrencyService } from './services/currency.service';
 import { AuthModule } from './modules/auth/auth.module';
-// import { CookieManagerService } from './services/cookie-manager.service';
-import { AuthInterceptor, LogLevel, OidcConfigService } from 'angular-auth-oidc-client';
 import { RefreshComponent } from './pages/refresh/refresh.component';
-import { OidcHelperService } from './services/oidc-helper.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { OAuthModule, OAuthService } from 'angular-oauth2-oidc';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { LocalStoreManager } from './services/local-store-manager.service';
-// import { ThemeManager } from './services/theme-manager';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -31,23 +29,22 @@ import { LocalStoreManager } from './services/local-store-manager.service';
     FooterComponent,
     HeaderComponent,
     RefreshComponent,
-
   ],
   imports: [
-    FormsModule,
+    FormsModule,//add [(ngModel)]
     BrowserModule,
     RouterModule,// надо для Router
     AppRoutingModule,// надо для Router
     HomeModule,// новый роут для Router
     AuthModule,// новый роут для Router
-    //CarouselModule,    //add carusel
     ScrollToModule.forRoot(), //add scrol, ндо чтобы была в App
     HttpClientModule,  //add работа с Http
     OAuthModule.forRoot(),
-    // ToastaModule.forRoot(),
-    // NgSelectModule,
     TooltipModule.forRoot(),
     CarouselModule.forRoot(),
+    BrowserAnimationsModule,
+    TypeaheadModule.forRoot(),  //add [typeahead]
+    ReactiveFormsModule,
   ],
   providers: [
     CurrencyService,
