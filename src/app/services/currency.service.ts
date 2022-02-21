@@ -15,10 +15,17 @@ export class CurrencyService {
   constructor(private http:HttpClient, private authService: AuthService ) {}
 
   getProductById(id: string){
-    let r = this.authService.getAuthorizationHeaderValue();
-    let r2 = DBkeys.URLpath + '/get-product-by-id/' + id;
+
+    // let headers = this.authService.getAuthorizationHeaderValue();
+    // var body = JSON.stringify(id);
+    // debugger;
+
+    // return this.http.post(DBkeys.URLpath + '/get-product-by-id',body, { headers: headers });
+
+    let headers = this.authService.getAuthorizationHeaderValue();
     debugger;
-    return this.http.get(r2, { headers: r});
+
+    return this.http.get(DBkeys.URLpath + '/get-product-by-id/' + id, { headers: headers });
   };
 
   getProductByShopId(id: string){

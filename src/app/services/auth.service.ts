@@ -60,19 +60,22 @@ export class AuthService {
   }
 
   getAuthorizationHeaderValue(): HttpHeaders {
-    // let headers = new HttpHeaders({ 'Authorization': `Bearer ${this.oidcHelperService.accessToken}`});
+    var headers = new HttpHeaders().set( 'Authorization', 'Bearer ' + this.oidcHelperService.accessToken);
+    // headers = headers.set( 'Accept', 'application/json, text/plain, */*');
+    headers = headers.set('Content-Type', 'application/json');
+    // headers = headers
+    // headers = headers.append( 'Content-Type', 'application/json');
+    // headers = headers.append( 'Authorization', 'Bearer ' + this.oidcHelperService.accessToken);
+    // headers = headers.append( 'Accept', 'application/json, text/plain, */*');
 
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + this.oidcHelperService.accessToken,
-      'Content-Type': 'application/json',
-      Accept: 'application/json, text/plain, */*'
-    });
-    // const headers2 = new HttpHeaders();
-    // debugger;
-    // if(headers2 === headers){
-
-    // }
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   Authorization: 'Bearer ' + this.oidcHelperService.accessToken,
+    //   Accept: 'application/json, text/plain, */*'
+    // });
     return headers;
+
+
   }
 
   logout(): void {

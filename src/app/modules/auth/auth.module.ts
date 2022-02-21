@@ -14,11 +14,13 @@ import { ConfigurationService } from '../../services/configuration.service';
 import { OidcHelperService } from '../../services/oidc-helper.service';
 import { AuthService } from '../../services/auth.service';
 import { AddproductComponent } from './pages/addproduct/addproduct.component';
+import { AddshopComponent } from './pages/addshop/addshop.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     AddproductComponent,
+    AddshopComponent,
   ],
   imports: [
     TooltipModule,    //add bootstrap
