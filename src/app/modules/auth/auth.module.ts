@@ -7,7 +7,6 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AuthRoutingModule } from './auth-routing.module';
 import { ConstantsService, DBkeys } from '../../services/constants.service';
 import { CurrencyService } from '../../services/currency.service';
-import { AuthComponent } from './auth.component';
 import { ConfigurationService } from '../../services/configuration.service';
 import { OidcHelperService } from '../../services/oidc-helper.service';
 import { AuthService } from '../../services/auth.service';
@@ -16,6 +15,7 @@ import { AddshopComponent } from './pages/addshop/addshop.component';
 import { PersonalCabinetComponent } from './pages/personal-cabinet/personal-cabinet.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { CartComponent } from './pages/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
     AddproductComponent,
     AddshopComponent,
     PersonalCabinetComponent,
+    CartComponent
   ],
   imports: [
     TooltipModule,    //add bootstrap
@@ -41,7 +42,6 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
     // TranslateService,//
   ],
   bootstrap: [
-    AuthComponent
   ]
 })
 export class AuthModule { }

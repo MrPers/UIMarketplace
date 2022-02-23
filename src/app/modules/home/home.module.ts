@@ -1,7 +1,6 @@
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { Directive, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -11,9 +10,8 @@ import { ConstantsService } from '../../services/constants.service';
 import { CurrencyService } from '../../services/currency.service';
 import { ProductComponent } from './pages/product/product.component';
 import { ShopComponent } from './pages/shop/shop.component';
-import { CabinetComponent } from './pages/cabinet/cabinet.component';
-import { CartComponent } from './pages/cart/cart.component';
 import { AddproductComponent } from '../auth/pages/addproduct/addproduct.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +19,6 @@ import { AddproductComponent } from '../auth/pages/addproduct/addproduct.compone
     MenuComponent,
     ProductComponent,
     ShopComponent,
-    CabinetComponent,
-    CartComponent,
   ],
   imports: [
     TooltipModule,

@@ -12,16 +12,20 @@ export class CartComponent implements OnInit {
 
   constructor(private constantsService: ConstantsService, private currencyService:CurrencyService, private route: ActivatedRoute){}
   products = [];
+  sum:number=0;
 
   ngOnInit() {
-    let userID = "acf93f63-6026-45a0-d7b3-08d9f6df7563";
-    // let userID = "140708be-a80b-4ac6-d7b2-08d9f6df7563";
+    // let userID = "14f98611-bb70-43ae-4646-08d9f71dabfd";
+    let userID = "34b31a0c-8c65-4864-4647-08d9f71dabfd";
 
     this.currencyService.getUserChoiceByUserId(userID)
       .subscribe((data: any) =>
       {
         this.products = data['userChoicesResult'];
-        debugger;
+        this.products.forEach(element => {
+          this.sum = this.sum + (element.netPrice * element.numberProductinUserChoice);
+          // debugger;
+        });
       });
 
   }

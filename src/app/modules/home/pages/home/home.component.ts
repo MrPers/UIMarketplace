@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ConstantsService } from '../../services/constants.service';
-import { CurrencyService } from '../../services/currency.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent{
+
+  constructor() { }
 
   slides = [
     {image: 'https://via.placeholder.com/600.png/09f/fff'},
