@@ -14,6 +14,8 @@ export class CurrencyService {
 
   constructor(private http:HttpClient, private authService: AuthService ) {}
 
+  headers = this.authService.getAuthorizationHeaderValue();
+
   getProductById(id: string){
 
     // let headers = this.authService.getAuthorizationHeaderValue();
@@ -22,13 +24,12 @@ export class CurrencyService {
 
     // return this.http.post(DBkeys.URLpath + '/get-product-by-id',body, { headers: headers });
 
-    let headers = this.authService.getAuthorizationHeaderValue();
 
-    return this.http.get(DBkeys.URLpath + '/get-product-by-id/' + id, { headers: headers });
+    return this.http.get(DBkeys.URLpath + '/get-product-by-id/' + id, { headers: this.headers });
   };
 
   getProductByShopId(id: string){
-    return this.http.get(DBkeys.URLpath + '/get-product-by-shop-id/' + id);
+    return this.http.get(DBkeys.URLpath + '/get-product-by-shop-id/' + id, { headers: this.headers });
   };
 
   getProductAll(){
@@ -45,6 +46,10 @@ export class CurrencyService {
 
   addUser(user: User){
     return this.http.post(DBkeys.URLpath + "/Account/register", user);
+  };
+
+  getUserChoiceByUserId(userId: string){
+    return this.http.get(DBkeys.URLpath + "/get-userChoice-by-user-id/" + userId);
   };
 
   // userAuthentication(user: User){

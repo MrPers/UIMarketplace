@@ -259,3 +259,13 @@ img.dva:hover {    /* при новедении миняться картинк�
   filter: alpha (Opacity=0);/* прозрачность для IE */
   opacity: 0;/* прозрачность для других браузеров */
 }
+
+.shadow input {    /* поиск */
+  outline:none;
+  border:unset;
+  padding: 10px ;
+  clip-path: polygon(0 0, 100% 18%, 100% 100%, 0% 100%);
+}
+.shadow {
+  filter: drop-shadow(0px 0px 1px gray);
+}

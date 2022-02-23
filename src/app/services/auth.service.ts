@@ -60,10 +60,10 @@ export class AuthService {
   }
 
   getAuthorizationHeaderValue(): HttpHeaders {
-    var headers = new HttpHeaders();
-    headers = headers.set( 'Accept', 'application/json, text/plain, */*');
-    headers = headers.set('Content-Type', 'application/json');
-    headers = headers.set( 'Authorization', 'Bearer ' + this.oidcHelperService.accessToken);
+    var headers = new HttpHeaders()
+      .append( 'Accept', 'application/json, text/plain, */*')
+      .append('Content-Type', 'application/json')
+      .append( 'Authorization', 'Bearer ' + this.oidcHelperService.accessToken);
     // headers = headers.append( 'Content-Type', 'application/json');
     // headers = headers.append( 'Authorization', 'Bearer ' + this.oidcHelperService.accessToken);
     // headers = headers.append( 'Accept', 'application/json, text/plain, */*');
@@ -74,9 +74,7 @@ export class AuthService {
     //   Accept: 'application/json, text/plain, */*'
     // });
     return headers;
-
-
-  }
+    }
 
   logout(): void {
     this.localStorage.deleteData(DBkeys.ACCESS_TOKEN);

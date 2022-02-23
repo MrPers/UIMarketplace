@@ -69,6 +69,11 @@ export class Shop {
 export class DBkeys {
 
   public static readonly URLpath = "https://localhost:5001";
+  public static readonly clientId = 'client_angular_id';
+  // private scope = 'openid email phone profile offline_access roles Order';
+  // private scope = 'openid profile Order';
+  public static readonly scope = 'openid profile';
+  public static readonly grant_type = 'password';
 
   public static readonly CURRENT_USER = 'current_user';
   public static readonly USER_PERMISSIONS = 'user_permissions';
