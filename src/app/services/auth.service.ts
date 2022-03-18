@@ -52,30 +52,6 @@ export class AuthService {
     return this.oidcHelperService.isSessionExpired;
   }
 
-  loginWithPassword(userName: string, password: string) {
-    return this.oidcHelperService.loginWithPassword(userName, password)
-      .pipe(map(resp => {
-        this.processLoginResponse(resp);
-      }));
-  }
-
-  getAuthorizationHeaderValue(): HttpHeaders {
-    var headers = new HttpHeaders()
-      .append( 'Accept', 'application/json, text/plain, */*')
-      .append('Content-Type', 'application/json')
-      .append( 'Authorization', 'Bearer ' + this.oidcHelperService.accessToken);
-    // headers = headers.append( 'Content-Type', 'application/json');
-    // headers = headers.append( 'Authorization', 'Bearer ' + this.oidcHelperService.accessToken);
-    // headers = headers.append( 'Accept', 'application/json, text/plain, */*');
-
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   Authorization: 'Bearer ' + this.oidcHelperService.accessToken,
-    //   Accept: 'application/json, text/plain, */*'
-    // });
-    return headers;
-    }
-
   logout(): void {
     this.localStorage.deleteData(DBkeys.ACCESS_TOKEN);
     this.localStorage.deleteData(DBkeys.REFRESH_TOKEN);
@@ -116,7 +92,7 @@ export class AuthService {
     this.localStorage.savePermanentData(rememberMe, DBkeys.REMEMBER_ME);
   }
 
-  private processLoginResponse(response: LoginResponse) {
+  processLoginResponse(response) {
 
     const accessToken = response.access_token;
     let rememberMe = this.rememberMe;
@@ -143,14 +119,30 @@ export class AuthService {
       decodedAccessToken.jti
     );
 
-    console.log(accessToken);
-
     this.saveUserDetails(user, permissions, accessToken, refreshToken, accessTokenExpiry, rememberMe);
 
     this.reevaluateLoginStatus(user);
 
     return user;
   }
+
+  getAuthorizationHeaderValue(): HttpHeaders {
+    var headers = new HttpHeaders()
+      .append( 'Accept', 'application/json, text/plain, */*')
+      .append('Content-Type', 'application/json')
+      .append( 'Authorization', 'Bearer ' + this.oidcHelperService.accessToken);
+      debugger;
+    // headers = headers.append( 'Content-Type', 'application/json');
+    // headers = headers.append( 'Authorization', 'Bearer ' + this.oidcHelperService.accessToken);
+    // headers = headers.append( 'Accept', 'application/json, text/plain, */*');
+
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   Authorization: 'Bearer ' + this.oidcHelperService.accessToken,
+    //   Accept: 'application/json, text/plain, */*'
+    // });
+    return headers;
+    }
 
   get refreshToken(): string {
     return this.oidcHelperService.refreshToken;

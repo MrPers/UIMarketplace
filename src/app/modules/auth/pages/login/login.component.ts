@@ -59,18 +59,23 @@ export class LoginComponent implements OnInit {
         });
   }
 
-  async authenticationSubmit() {
-    this.authService.loginWithPassword(this.userAuthentication.userName, this.userAuthentication.password)
+  authenticationSubmit() {
+    this.oidcHelperService.loginWithPassword(this.userAuthentication.userName, this.userAuthentication.password)
+      .pipe(map(res => {
+        debugger;
+        this.authService.processLoginResponse(res);        
+      }))
       .subscribe(
-        user => {
-          this.currencyService.authUser(this.userAuthentication)
-            .subscribe(
-             (data) =>{
-               this.router.navigate(['']);
-             },
-             (error) => {
-               // debugger;
-             });
+        data => {
+          // this.oidcHelperService.authenticationWithPassword(this.userAuthentication.userName, this.userAuthentication.password)
+          // .subscribe(
+          //   data => {
+          //     debugger;
+          //   },
+          //   error => {
+          //     debugger;
+          //   });
+          this.router.navigate(['']);
         },
         error => {
           debugger;

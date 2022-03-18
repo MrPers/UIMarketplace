@@ -46,7 +46,6 @@ export class OidcHelperService {
   }
 
   loginWithPassword(userName: string, password: string) {
-
     const header = new HttpHeaders()
       .append('Content-Type', 'application/x-www-form-urlencoded');
     const params = new HttpParams()
@@ -58,8 +57,18 @@ export class OidcHelperService {
     this.oauthService.issuer = this.baseUrl;
     return from(this.oauthService.loadDiscoveryDocument())
       .pipe(mergeMap(() => {
-          // debugger;
           return this.http.post<LoginResponse>(this.oauthService.tokenEndpoint, params, { headers: header });
+        }));
+  }
+
+  authenticationWithPassword(userName: string, password: string) {
+    const header = new HttpHeaders()
+    .append( 'Authorization', 'Bearer ' + this.accessToken);
+    this.oauthService.issuer = this.baseUrl;
+    return from(this.oauthService.loadDiscoveryDocument())
+      .pipe(mergeMap(() => {
+          debugger;          
+          return this.http.get(this.oauthService.userinfoEndpoint, { headers: header });
         }));
   }
 
